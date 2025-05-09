@@ -1,7 +1,7 @@
 type CalculatorProps = {
   a: number;
   b: number;
-  operation: "add" | "subtract" | "multiply" | "divide" | string;
+  operation: "add" | "substract" | "multiply" | "divide" | string;
 };
 
 export const Calculator = ({ a, b, operation }: CalculatorProps) => {
@@ -9,7 +9,7 @@ export const Calculator = ({ a, b, operation }: CalculatorProps) => {
     switch (operation) {
       case "add":
         return a + b;
-      case "subtract":
+      case "substract":
         return a - b;
       case "multiply":
         return a * b;

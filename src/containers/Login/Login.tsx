@@ -15,10 +15,10 @@ const mockSuperAdmin = {
   password: "superadmin123!",
 };
 
-const mockVisualuizer = {
+/* const mockVisualuizer = {
   username: "visualizer1@example.com",
   password: "vis1pass456@",
-};
+}; */
 
 export const Login: React.FC = () => {
   const [formData, setFormData] = useState<LoginFormData>(mockSuperAdmin);

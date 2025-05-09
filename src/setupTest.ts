@@ -1,0 +1,1 @@
+import '@testing-library/jest-dom'; //Trea los matchers que necesitamos
