@@ -8,24 +8,24 @@ export const OrderSummary: React.FC<{ orders: Order[] }> = ({ orders }) => {
   const summary = useMemo(() => getSummaryOrders(orders), [orders]);
 
   return (
-    <div className={styles.OrdersSummary}>
+    <div data-testid="orders-summary" className={styles.OrdersSummary}>
       <h3 className={styles.OrdersSummary__title}>
         Orders Summary (Only admins)
       </h3>
       <div className={styles.OrdersSummary__grid}>
         <div className={styles.OrdersSummary__item}>
           <p className={styles.OrdersSummary__label}>Total Orders</p>
-          <p className={styles.OrdersSummary__value}>{summary.totalOrders}</p>
+          <p className={styles.OrdersSummary__value} data-testid="orders-total">{summary.totalOrders}</p>
         </div>
         <div className={styles.OrdersSummary__item}>
           <p className={styles.OrdersSummary__label}>Total Value</p>
-          <p className={styles.OrdersSummary__value}>
+          <p className={styles.OrdersSummary__value} data-testid="orders-value">
             ${summary.totalValue.toFixed(2)}
           </p>
         </div>
         <div className={styles.OrdersSummary__item}>
           <p className={styles.OrdersSummary__label}>Average Order Value</p>
-          <p className={styles.OrdersSummary__value}>
+          <p className={styles.OrdersSummary__value} data-testid="orders-average">
             ${summary.averageOrderValue.toFixed(2)}
           </p>
         </div>
@@ -38,7 +38,7 @@ export const OrderSummary: React.FC<{ orders: Order[] }> = ({ orders }) => {
           {Object.entries(summary.ordersByStatus).map(([status, count]) => (
             <li key={status} className={styles.OrdersSummary__statusItem}>
               <StatusBadge status={status} />
-              <span className={styles.OrdersSummary__statusCount}>{count}</span>
+              <span className={styles.OrdersSummary__statusCount} data-testid="status-count">{count}</span>
             </li>
           ))}
         </ul>
