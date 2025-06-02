@@ -16,6 +16,9 @@ vi.mock("../services/getOrders", () => ({
   getOrders: vi.fn(),
 }));
 
+const mockGetOrders = getOrders as Mock;
+const mockUseSession = useSession as Mock;
+const mockNavigate = vi.fn();
 const mockOrders = [
   {
     id: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
@@ -51,9 +54,7 @@ const mockOrders = [
     paymentMethod: "credit_card",
   },
 ];
-const mockGetOrders = getOrders as Mock;
-const mockUseSession = useSession as Mock;
-const mockNavigate = vi.fn();
+
 
 describe("useOrders", () => {
 
@@ -61,7 +62,6 @@ describe("useOrders", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     mockUseSession.mockReturnValue({ user: { id: 1 } });
-    
   });
 
   it.skip("Loading should be false when orders are fetched", async () => {
